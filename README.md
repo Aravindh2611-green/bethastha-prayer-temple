@@ -93,7 +93,7 @@ Only add image URLs for images the church has permission to use. The gallery and
 3. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` as Vercel environment variables for deployments that need shared administration. Use only a public anon/publishable key.
 4. Redeploy after setting or changing environment variables.
 
-The included `index.html` uses the SPA entry point. `/admin` is handled by the same React application; ensure your hosting platform rewrites unknown paths to `index.html` if its Vite SPA fallback is not enabled by default.
+The included `vercel.json` rewrites requests to the SPA entry point, so direct navigation and refresh work for `/admin` and other client-side routes. Vercel serves existing static files (including built assets) as files; unmatched routes fall back to `index.html`.
 
 ### GitHub
 
